@@ -8,6 +8,6 @@ return {
       transparent = true,
       ending_tildes = true,
     })
-    vim.cmd('colorscheme onedark')
+    -- vim.cmd('colorscheme onedark')
   end
 }
