@@ -1,12 +1,11 @@
-return {
-  "folke/tokyonight.nvim",
-  priority = 1000,
+return function()
+  MiniDeps.add({
+    source = 'folke/tokyonight.nvim'
+  })
 
-  config = function ()
-    local tokyonight = require("tokyonight")
-    tokyonight.setup({
-      style = "night",
-    })
-    -- vim.cmd("colorscheme tokyonight")
-  end
-}
+  require('tokyonight').setup({
+    transparent = true,
+  })
+
+  vim.cmd('colorscheme tokyonight')
+end

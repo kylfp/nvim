@@ -1,3 +1,3 @@
-require('fattyre.core')
-require('fattyre.lazy')
-require("nvim-highlight-colors").turnOn()
+require('fattyre.options')
+require('fattyre.deps')
+require('fattyre.keymaps')

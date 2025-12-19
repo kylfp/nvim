@@ -1,14 +1,12 @@
-return {
-  "catppuccin/nvim",
-  name = "catppuccin",
-  priority = 1000,
+return function()
+  MiniDeps.add({
+    source = 'catppuccin/nvim',
+  })
 
-  config = function ()
-    local catppuccin = require("catppuccin")
-    catppuccin.setup({
-      flavour = "macchiato",
-      transparent_background = true,
-    })
-    -- vim.cmd('colorscheme catppuccin')
-  end
-}
+  require('catppuccin').setup({
+    flavour = "macchiato",
+    transparent_background = true,
+  })
+
+  -- vim.cmd('colorscheme catppuccin')
+end

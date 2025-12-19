@@ -1,10 +1,10 @@
-return {
-  "folke/snacks.nvim",
-  priority = 1000,
-  lazy = false,
-  opts = {
+return function()
+  MiniDeps.add({
+    source = 'folke/snacks.nvim',
+  })
 
-    -- DashBoard
+  require('snacks').setup({
+    -- Dashboard
     dashboard = {
       enabled = true,
       preset = {
@@ -26,18 +26,10 @@ return {
       },
     },
 
-    -- Indent level indicator
+    -- Indent Level Indicator
     indent = { enabled = true },
 
-    -- Smooth scrolling animation
-    -- scroll = { enabled = true },
-
-    -- Better vim input
+    -- Better Vim Input
     input = { enabled = true },
-
-    -- Notifications
-    -- notifier = { enabled = true },
-    -- notify = { enabled = true },
-
-  },
-}
+  })
+end

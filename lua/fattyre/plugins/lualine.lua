@@ -29,18 +29,18 @@ local function sep()
   return [[]]
 end
 
-return {
-  'nvim-lualine/lualine.nvim',
-  dependencies = {
-    'nvim-tree/nvim-web-devicons',
-  },
-  opts = {
+return function()
+  MiniDeps.add({
+    source = 'nvim-lualine/lualine.nvim',
+  })
+
+  require('lualine').setup({
     options = {
       icons_enabled = true,
       theme = 'auto',
       component_separators = { left = '', right = '' },
       section_separators = { left = '', right = '' },
-      disaled_filetypes = {
+      disabled_filetypes = {
         'NvimTree',
         statusline = {},
         winbar = {},
@@ -56,7 +56,7 @@ return {
     },
     sections = {
       lualine_a = { { neovim }, 'mode' },
-      lualine_b = { 'diagnostics' },
+      lualine_b = { 'diagnostics', 'branch', 'diff' },
       lualine_c = { filenameSettings },
       lualine_x = { 'filetype' },
       lualine_y = { 'encoding', 'fileformat' },
@@ -70,21 +70,5 @@ return {
       lualine_y = { },
       lualine_z = { },
     },
-    -- winbar = {
-    --   lualine_a = { },
-    --   lualine_b = { },
-    --   lualine_c = { bufferSettings },
-    --   lualine_x = { },
-    --   lualine_y = { },
-    --   lualine_z = { },
-    -- },
-    -- tabline = {
-    --   lualine_a = { },
-    --   lualine_b = { },
-    --   lualine_c = { 'branch', 'diff' },
-    --   lualine_x = { },
-    --   lualine_y = { },
-    --   lualine_z = { },
-    -- },
-  }
-}
+  })
+end
